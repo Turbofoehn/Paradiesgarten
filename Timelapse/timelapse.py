@@ -6,8 +6,8 @@ import time
 from picamera import PiCamera
 from datetime import datetime
 
-# Start camera, set resolution and framerate
-# lock ISO,shutter speed, white balance
+# Start camera, set resolution, framerate, and ISO.
+# Lock white balance.
 
 camera = PiCamera()
 camera.resolution = (3280, 2464)
@@ -18,7 +18,7 @@ g = camera.awb_gains
 camera.awb_mode = 'off'
 camera.awb_gains = g
 
-# take a picture every 5 minutes
+# take a picture every minute
 while True:
     camera.capture(
      '/media/Usb-Drive/Timelapse/{:%Y-%m-%d-%H-%M}.jpg'.format(datetime.now()))
