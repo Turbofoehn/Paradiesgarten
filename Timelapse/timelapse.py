@@ -1,8 +1,7 @@
 #!/usr/bin/python
 
-'''Take a picture every X minutes and save it to ~/timelapse as y-m-d-h-m.jpg'''
+"""Take a picture every X minutes and save to ~/timelapse as y-m-d-h-m.jpg."""
 
-import os
 import time
 from picamera import PiCamera
 from datetime import datetime
@@ -19,13 +18,8 @@ g = camera.awb_gains
 camera.awb_mode = 'off'
 camera.awb_gains = g
 
-#take a picture every 5 minutes
+# take a picture every 5 minutes
 while True:
-    camera.capture('/media/Usb-Drive/Timelapse/{:%Y-%m-%d-%H-%M}.jpg'.format(datetime.now()))
+    camera.capture(
+     '/media/Usb-Drive/Timelapse/{:%Y-%m-%d-%H-%M}.jpg'.format(datetime.now()))
     time.sleep(60)
-
-
-#camera.start_preview()
-#time.sleep(5)
-#camera.capture('/home/pi/Desktop/{:%Y-%m-%d-%H-%M}.jpg'.format(datetime.now()))on
-#camera.stop_preview()
